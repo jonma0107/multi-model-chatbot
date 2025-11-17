@@ -56,7 +56,7 @@ Si quieres usar modelos locales sin internet:
 
 Simplemente abre el archivo `index.html` en tu navegador web.
 
-<img width="536" height="689" alt="image" src="https://github.com/user-attachments/assets/59dab43f-033f-4270-b21a-5da111f539bb" />
+<img width="1360" height="801" alt="image" src="https://github.com/user-attachments/assets/38ed5b95-d81a-4ac1-96f6-2acd7c72059b" />
 
 ## ⚠️ Seguridad
 
