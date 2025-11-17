@@ -1,38 +1,47 @@
-/* Importing Inter font */
+/* ============================================
+   ESTILOS GLOBALES - Configuración base
+   ============================================ */
 
+/* Importar fuente Inter de Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+/* Reset CSS - Eliminar márgenes y padding por defecto de todos los elementos */
 * {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    font-family: 'Inter', sans-serif;
+    box-sizing: border-box; /* Incluir padding y border en el ancho/alto total */
+    font-family: 'Inter', sans-serif; /* Fuente por defecto para todo el sitio */
 }
 
+/* Estilos del body - Centrar el chatbot en la pantalla */
 body {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    background: linear-gradient(to bottom, #eeeeff, #c8c7ff);
+    min-height: 100vh; /* Altura mínima de toda la ventana */
+    background: linear-gradient(to bottom, #eeeeff, #c8c7ff); /* Fondo degradado morado claro */
 }
 
+/* Contenedor principal del chatbot - Ventana flotante */
 .chatbot-popup {
     position: relative;
-    width: 420px;
-    background: #fff;
-    overflow: hidden;
-    border-radius: 15px;
+    width: 420px; /* Ancho fijo del chatbot */
+    background: #fff; /* Fondo blanco */
+    overflow: hidden; /* Ocultar contenido que se salga del contenedor */
+    border-radius: 15px; /* Esquinas redondeadas */
     box-shadow: 0 0 128px 0 rgba(0, 0, 0, 0.1),
-                0 32px 64px -48px rgba(0, 0, 0, 0.5);
+                0 32px 64px -48px rgba(0, 0, 0, 0.5); /* Sombra para efecto de elevación */
 }
 
+/* ============================================
+   HEADER - Barra superior con logo y selector
+   ============================================ */
 .chatbot-header {
     display: flex;
     align-items: center;
-    background: #5350c4;
+    background: #5350c4; /* Color morado del header */
     padding: 15px 22px;
-    justify-content: space-between;
+    justify-content: space-between; /* Logo a la izquierda, selector a la derecha */
 }
 
 .chatbot-header .header-info {
@@ -56,14 +65,14 @@ body {
     font-weight: 600;
 }
 
-/* Model selector styles */
+/* Selector de modelo - Dropdown para cambiar entre Gemini y Ollama */
 .model-selector {
     display: flex;
     align-items: center;
 }
 
 .model-select {
-    background: rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.2); /* Fondo blanco semi-transparente */
     color: #fff;
     border: 1px solid rgba(255, 255, 255, 0.3);
     padding: 6px 12px;
@@ -71,15 +80,15 @@ body {
     font-size: 0.9rem;
     cursor: pointer;
     outline: none;
-    transition: all 0.2s ease;
+    transition: all 0.2s ease; /* Animación suave al cambiar */
 }
 
 .model-select:hover {
-    background: rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.3); /* Más opaco al pasar el mouse */
 }
 
 .model-select option {
-    background: #5350c4;
+    background: #5350c4; /* Fondo morado para las opciones del dropdown */
     color: #fff;
 }
 
@@ -101,14 +110,17 @@ body {
     background: #3d39ac;
 }
 
+/* ============================================
+   CHAT BODY - Área de mensajes
+   ============================================ */
 .chat-body {
     padding: 25px 22px;
     display: flex;
-    gap: 20px;
-    height: 500px;
-    overflow-y: auto;
-    flex-direction: column;
-    margin-bottom: 82px;
+    gap: 20px; /* Espacio entre mensajes */
+    height: 500px; /* Altura fija del área de chat */
+    overflow-y: auto; /* Scroll vertical cuando hay muchos mensajes */
+    flex-direction: column; /* Mensajes apilados verticalmente */
+    margin-bottom: 82px; /* Espacio para el footer fijo */
 }
 
 
@@ -157,6 +169,7 @@ body {
     border-radius: 13px 13px 3px 13px;
 }
 
+/* Indicador de "pensando" - Tres puntos animados mientras el bot procesa */
 .chat-body .bot-message .thinking-indicator {
     display: flex;
     gap: 4px;
@@ -168,9 +181,9 @@ body {
     width: 7px;
     height: 7px; 
     opacity: 0.7;
-    border-radius: 50%;
+    border-radius: 50%; /* Círculo perfecto */
     background: #6f6bc2;
-    animation: dotPulse 1.8s ease-in-out infinite;
+    animation: dotPulse 1.8s ease-in-out infinite; /* Animación continua */
 }
 
 .chat-body .bot-message .thinking-indicator .dot:nth-child(1) {
@@ -185,21 +198,25 @@ body {
     animation-delay: 0.4s;
 }
 
+/* Animación de los puntos "pensando" - Efecto de rebote hacia arriba */
 @keyframes dotPulse {
     0%, 44% {        
-        transform: translateY(0);
+        transform: translateY(0); /* Posición inicial */
     }
     28% {
         opacity: 0.4;
-        transform: translateY(-4px);
+        transform: translateY(-4px); /* Sube 4px */
     }
     44% {
-        opacity: 0.2;
+        opacity: 0.2; /* Se desvanece */
     }
 }
 
+/* ============================================
+   FOOTER - Área de entrada de mensajes
+   ============================================ */
 .chat-footer {
-    position: absolute;
+    position: absolute; /* Fijar en la parte inferior */
     bottom: 0;
     width: 100%;
     background: #fff;
@@ -258,6 +275,7 @@ body {
     color: #5350c4;
 }
 
+/* Mostrar botón de enviar solo cuando el campo de texto tiene contenido válido */
 .chat-form .message-input:valid~.chat-controls #send-message {
     display: block;
 }
@@ -272,22 +290,27 @@ body {
     background: #e0e0e0;
 }
 
+/* Selector de emojis - Oculto por defecto, aparece sobre el input */
 em-emoji-picker {
     position: absolute;
     left: 50%;
-    top: -337px;
+    top: -337px; /* Posicionado arriba del input */
     width: 100%;
     max-width: 350px;
     max-height: 330px;
-    visibility: hidden;
-    transform: translateX(-50%);   
+    visibility: hidden; /* Oculto por defecto */
+    transform: translateX(-50%); /* Centrado horizontalmente */
 }
 
+/* Mostrar el selector cuando se agrega la clase show-emoji-picker al body */
 body.show-emoji-picker em-emoji-picker {
     visibility: visible;
 }
 
-/* Responsive media query for mobile screens */
+/* ============================================
+   RESPONSIVE - Adaptación para móviles
+   ============================================ */
+/* Cuando la pantalla es menor a 520px, el chatbot ocupa toda la pantalla */
 @media (max-width: 520px) {
     #chatbot-toggler {
       right: 20px;
