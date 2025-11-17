@@ -297,3 +297,10 @@ document.querySelector('.chat-form').appendChild(picker);
 
 // Permitir enviar mensaje haciendo clic en el botón de enviar (flecha hacia arriba)
 sendMessageButton.addEventListener('click', (e) => handleOutgoingMessage(e))
+
+
+$('#ripple').ripples({
+	resolution: 512,
+	dropRadius: 20,
+	perturbance: 0.04,
+});
