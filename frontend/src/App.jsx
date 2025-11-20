@@ -9,8 +9,8 @@ const App = () => {
 
   const generateBotResponse = async (history) => {
     // Update chat history with bot's response
-    const updateHistory = (text) => {
-      setChatHistory((prev) => [...prev.filter((msg) => msg.text !== "Thinking..."), {role: "model", text}]);
+    const updateHistory = (text, isError = false) => {
+      setChatHistory((prev) => [...prev.filter((msg) => msg.text !== "Thinking..."), {role: "model", text, isError}]);
     };
      
     // Format chat history for API request
@@ -31,7 +31,7 @@ const App = () => {
       const apiResponseText = data.candidates[0].content.parts[0].text.replace(/\*\*(.*?)\*\*/g, "$1").trim();
       updateHistory(apiResponseText);
     } catch (error) {
-      console.error(error);
+      updateHistory(error.message, true);
     }
   };
 
