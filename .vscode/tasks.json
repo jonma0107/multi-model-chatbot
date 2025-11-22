@@ -1,0 +1,41 @@
+{
+  "version": "2.0.0",
+    "tasks": [
+    {
+      "label": "compose_up",
+      "type": "shell",
+      "command": "docker-compose up -d",
+      "problemMatcher": []
+    },
+    {
+      "label": "compose_down",
+      "type": "shell",
+      "command": "docker-compose down",
+      "problemMatcher": []
+    },
+    {
+      "label": "compose_build",
+      "type": "shell",
+      "command": "docker-compose build --no-cache",
+      "problemMatcher": []
+    },
+    {
+      "label": "backend_shell",
+      "type": "shell",
+      "command": "docker exec -it backend sh",
+      "problemMatcher": []
+    },
+    {
+      "label": "backend_logs",
+      "type": "shell",
+      "command": "docker logs --tail 1000 -f backend",
+      "problemMatcher": []
+    },
+    {
+      "label": "backend_bash",
+      "type": "shell",
+      "command": "docker exec -it backend bash",
+      "problemMatcher": []
+    }
+  ]
+}
